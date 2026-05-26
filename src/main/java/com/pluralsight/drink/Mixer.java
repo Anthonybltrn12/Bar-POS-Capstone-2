@@ -8,7 +8,8 @@ public enum Mixer {
     COKE("coke", 1.00),
     DR_PEPPER("Dr.Pepper",1.00),
     SPRITE("Sprite",1.00),
-    GINGER_BEER("Ginger beer",1.50);
+    GINGER_BEER("Ginger beer",1.50),
+    NONE("Neat", 0.00);
 
     private final String name;
     private final double price;
