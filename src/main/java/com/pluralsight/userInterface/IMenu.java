@@ -1,7 +1,10 @@
 package com.pluralsight.userInterface;
 
+import com.pluralsight.Order;
 import com.pluralsight.drink.*;
+import com.pluralsight.snacks.Snack;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class IMenu {
@@ -19,15 +22,43 @@ public class IMenu {
             int userInput = theScanner.nextInt();
             switch (userInput){
                 case 1:
+                   orderMenu();
+                   break;
+                case 2:
+                    System.out.println("Thank you, have a good night!");
+                    isRunning = false;
+                    break;
+            }
+        }
+    }
+
+    public void orderMenu(){
+        boolean isRunning = true;
+        Order order = new Order();
+        while(isRunning) {
+            System.out.println("""
+                    1) Add Drink
+                    2) Add Snack
+                    3) Checkout
+                    0) Cancel Order
+                    """);
+            int userInput = theScanner.nextInt();
+            switch(userInput){
+                case 1:
                     Drink drink = new Drink();
                     liquorMenu(drink);
                     pourSizeMenu(drink);
                     mixerMenu(drink);
                     garnishMenu(drink);
                     finalPrice(drink);
+                    order.addDrink(drink);
                     break;
                 case 2:
-                    System.out.println("Thank you, have a good night!");
+
+                    snackMenu(order);
+
+                    break;
+                case 0:
                     isRunning = false;
                     break;
             }
@@ -75,5 +106,15 @@ public class IMenu {
 
     public void finalPrice(Drink drink){
         System.out.println(drink.getTotal());
+    }
+
+    public void snackMenu(Order order){
+        Snack[] snacks = Snack.values();
+        for(Snack snack : Snack.values()){
+            System.out.println((snack.ordinal() + 1) + "."+ snack.getName());
+        }
+        System.out.println("Please select an option:");
+        int userInput = theScanner.nextInt();
+        order.addSnack(snacks[userInput - 1]);
     }
 }

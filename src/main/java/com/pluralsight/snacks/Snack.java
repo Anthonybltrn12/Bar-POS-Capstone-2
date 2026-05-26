@@ -1,16 +1,17 @@
 package com.pluralsight.snacks;
 
-public abstract class Snack {
+public enum Snack {
+    POPCORN("Popcorn", 1.00),
+    CHIPS_AND_SALSA("Chips and Salsa", 2.00);
+
     private String name;
     private double price;
-    private String size;
-    private boolean isSalted;
 
-    public Snack(String name, double price, boolean isSalted, String size) {
+
+    Snack(String name, double price) {
         this.name = name;
         this.price = price;
-        this.isSalted = isSalted;
-        this.size = size;
+
     }
 
     public String getName() {
@@ -29,19 +30,6 @@ public abstract class Snack {
         this.price = price;
     }
 
-    public String getSize() {
-        return size;
-    }
 
-    public void setSize(String size) {
-        this.size = size;
-    }
 
-    public boolean isSalted() {
-        return isSalted;
-    }
-
-    public void setSalted(boolean salted) {
-        isSalted = salted;
-    }
 }
