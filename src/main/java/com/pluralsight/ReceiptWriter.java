@@ -18,7 +18,7 @@ public class ReceiptWriter {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             for (IObject item : order.orderList) {
-                bufferedWriter.write(item.getName() + " " + item.getPrice());
+                bufferedWriter.write(item.getName() + " " + item.getPrice() + "\n");
 
 
             }
