@@ -2,11 +2,19 @@ package com.pluralsight.snacks;
 
 public class ChipsAndSalsa extends Snack{
     private String salsaType;
-    private boolean isSalted;
 
-    public ChipsAndSalsa(String name, double price, String salsaType, boolean isSalted) {
-        super(name, price);
+
+    public ChipsAndSalsa(String name, double price, String salsaType, boolean isSalted, String size) {
+        super(name, price, isSalted, size);
         this.salsaType = salsaType;
-        this.isSalted = isSalted;
+
+    }
+
+    public String getSalsaType() {
+        return salsaType;
+    }
+
+    public void setSalsaType(String salsaType) {
+        this.salsaType = salsaType;
     }
 }
