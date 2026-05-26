@@ -50,7 +50,7 @@ public class IMenu {
     public void pourSizeMenu(Drink drink){
         PourSize[] pourSizes = PourSize.values();
         for(PourSize poursize : PourSize.values()){
-            System.out.println((poursize.ordinal() + 1) + poursize.getName());
+            System.out.println((poursize.ordinal() + 1) + "."+ poursize.getName());
         }
         System.out.println("Please select an option:");
         int userInput = theScanner.nextInt();
@@ -59,7 +59,7 @@ public class IMenu {
     public void mixerMenu(Drink drink){
         Mixer[] mixers = Mixer.values();
         for(Mixer mixer : Mixer.values()){
-            System.out.println((mixer.ordinal() + 1) + mixer.getName());
+            System.out.println((mixer.ordinal() + 1) + "." + mixer.getName());
         }
         System.out.println("Please select an option:");
         int userInput = theScanner.nextInt();
