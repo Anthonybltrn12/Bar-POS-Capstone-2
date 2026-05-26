@@ -35,6 +35,10 @@ public class Order {
 
     }
 
+    public void getOrderSummary(Drink drink, Snack snack){
+        System.out.println(drink.getSummary().toString());
+    }
+
     public double getTotal(){
         double total = 0;
         for(IObject item : orderList){

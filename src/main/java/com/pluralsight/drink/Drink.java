@@ -47,6 +47,9 @@ public class Drink implements IObject {
 
         return total;
     }
+    public String getName(){
+        return liquor.toString();
+    }
 
     public String getSummary(){
         return liquor.getName() + pourSize.getName() + mixer.getName() + garnish.getName();

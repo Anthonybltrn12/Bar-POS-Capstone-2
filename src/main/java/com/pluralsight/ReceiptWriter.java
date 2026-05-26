@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import com.pluralsight.drink.Liquor;
 import com.pluralsight.userInterface.IObject;
 
 import java.io.BufferedWriter;
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ReceiptWriter {
+
     public static void saveReceipt(Order order) throws IOException {
         try {
             String filename = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")) + ".txt";
@@ -16,7 +18,8 @@ public class ReceiptWriter {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             for (IObject item : order.orderList) {
-                bufferedWriter.write(item.toString());
+                bufferedWriter.write(item.getName() + " " + item.getPrice());
+
 
             }
 
