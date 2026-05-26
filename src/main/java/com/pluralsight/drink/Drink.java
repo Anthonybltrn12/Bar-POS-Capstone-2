@@ -6,6 +6,7 @@ public class Drink {
     protected PourSize pourSize;
     protected Mixer mixer;
     protected Liquor liquor;
+    protected Garnish garnish;
 
     public Drink(){
 
@@ -31,10 +32,19 @@ public class Drink {
         return liquor;
     }
 
+    public Garnish getGarnish() {
+        return garnish;
+    }
+
+    public void setGarnish(Garnish garnish) {
+        this.garnish = garnish;
+    }
+
     public double getTotal(){
         double total = this.price;
         total += pourSize.getPrice();
         total += mixer.getPrice();
+        total += garnish.getPrice();
 
         return total;
     }

@@ -1,9 +1,6 @@
 package com.pluralsight.userInterface;
 
-import com.pluralsight.drink.Drink;
-import com.pluralsight.drink.Liquor;
-import com.pluralsight.drink.Mixer;
-import com.pluralsight.drink.PourSize;
+import com.pluralsight.drink.*;
 
 import java.util.Scanner;
 
@@ -26,6 +23,7 @@ public class IMenu {
                     liquorMenu(drink);
                     pourSizeMenu(drink);
                     mixerMenu(drink);
+                    garnishMenu(drink);
                     finalPrice(drink);
                     break;
                 case 2:
@@ -64,6 +62,15 @@ public class IMenu {
         System.out.println("Please select an option:");
         int userInput = theScanner.nextInt();
         drink.setMixer(mixers[userInput - 1]);
+    }
+    public void garnishMenu(Drink drink){
+        Garnish[] garnishes = Garnish.values();
+        for(Garnish garnish : Garnish.values()){
+            System.out.println((garnish.ordinal() + 1) + "." + garnish.getName());
+        }
+        System.out.println("Please select an option:");
+        int userInput = theScanner.nextInt();
+        drink.setGarnish(garnishes[userInput - 1]);
     }
 
     public void finalPrice(Drink drink){
