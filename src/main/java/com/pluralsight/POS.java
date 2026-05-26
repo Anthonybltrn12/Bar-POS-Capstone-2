@@ -1,9 +1,6 @@
 package com.pluralsight;
 
-import com.pluralsight.drink.Drink;
-import com.pluralsight.drink.PourSize;
-
-import java.awt.*;
+import com.pluralsight.userInterface.IMenu;
 
 public class POS {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.userInterface;
 
 import com.pluralsight.drink.Drink;
 import com.pluralsight.drink.Liquor;
