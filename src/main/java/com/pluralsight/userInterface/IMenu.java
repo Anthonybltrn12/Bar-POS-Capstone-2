@@ -56,7 +56,9 @@ public class IMenu {
                 case 2:
 
                     snackMenu(order);
-
+                    break;
+                case 3:
+                    displayOrder(order);
                     break;
                 case 0:
                     isRunning = false;
@@ -105,7 +107,7 @@ public class IMenu {
     }
 
     public void finalPrice(Drink drink){
-        System.out.println(drink.getTotal());
+        System.out.println(drink.getPrice());
     }
 
     public void snackMenu(Order order){
@@ -116,5 +118,9 @@ public class IMenu {
         System.out.println("Please select an option:");
         int userInput = theScanner.nextInt();
         order.addSnack(snacks[userInput - 1]);
+    }
+
+    public void displayOrder(Order order){
+        System.out.println("Your total is:" + order.getTotal());
     }
 }

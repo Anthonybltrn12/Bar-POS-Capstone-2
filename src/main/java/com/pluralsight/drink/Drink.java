@@ -1,6 +1,8 @@
 package com.pluralsight.drink;
 
-public class Drink {
+import com.pluralsight.userInterface.IObject;
+
+public class Drink implements IObject {
 
     protected double price;
     protected PourSize pourSize;
@@ -13,9 +15,6 @@ public class Drink {
         this.price = 0.00;
     }
 
-    public double getPrice(){
-        return this.price;
-    }
 
     public void setPourSize(PourSize pourSize){
         this.pourSize = pourSize;
@@ -40,7 +39,7 @@ public class Drink {
         this.garnish = garnish;
     }
 
-    public double getTotal(){
+    public double getPrice(){
         double total = this.price;
         total += pourSize.getPrice();
         total += mixer.getPrice();

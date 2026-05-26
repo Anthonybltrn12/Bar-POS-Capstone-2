@@ -2,19 +2,20 @@ package com.pluralsight;
 
 import com.pluralsight.drink.Drink;
 import com.pluralsight.snacks.Snack;
+import com.pluralsight.userInterface.IObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    List<Object> orderList = new ArrayList<>();
+    List<IObject> orderList = new ArrayList<>();
     private double totalPrice;
 
     public Order() {
         this.totalPrice = 0;
     }
 
-    public List<Object> getOrderList() {
+    public List<IObject> getOrderList() {
         return orderList;
     }
 
@@ -30,5 +31,14 @@ public class Order {
         orderList.add(snack);
     }
 
+    public double getTotal(){
+        double total = 0;
+        for(IObject item : orderList){
+            double itemPrice = item.getPrice();
+            total += itemPrice;
+        }
 
+        return total;
+
+    }
 }

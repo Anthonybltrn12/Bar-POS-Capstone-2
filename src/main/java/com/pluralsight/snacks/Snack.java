@@ -1,6 +1,8 @@
 package com.pluralsight.snacks;
 
-public enum Snack {
+import com.pluralsight.userInterface.IObject;
+
+public enum Snack implements IObject {
     POPCORN("Popcorn", 1.00),
     CHIPS_AND_SALSA("Chips and Salsa", 2.00);
 
