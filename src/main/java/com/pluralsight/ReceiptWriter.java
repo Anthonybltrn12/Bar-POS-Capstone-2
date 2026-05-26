@@ -1,0 +1,30 @@
+package com.pluralsight;
+
+import com.pluralsight.userInterface.IObject;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class ReceiptWriter {
+    public static void saveReceipt(Order order) throws IOException {
+        try {
+            String filename = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")) + ".txt";
+            FileWriter fileWriter = new FileWriter("src/main/resources/receipts" + filename);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+            for (IObject item : order.orderList) {
+                bufferedWriter.write(item.toString());
+
+            }
+
+            bufferedWriter.close();
+        }catch(Exception e){
+            System.out.println("FIle not created");
+        }
+
+
+    }
+}

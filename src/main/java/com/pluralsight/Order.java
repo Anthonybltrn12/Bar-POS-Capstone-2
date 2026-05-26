@@ -30,6 +30,9 @@ public class Order {
     public void addSnack(Snack snack){
         orderList.add(snack);
     }
+    public String getDrink(Drink drink){
+        return drink.getSummary();
+    }
 
     public double getTotal(){
         double total = 0;

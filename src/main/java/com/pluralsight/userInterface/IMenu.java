@@ -1,16 +1,18 @@
 package com.pluralsight.userInterface;
 
 import com.pluralsight.Order;
+import com.pluralsight.ReceiptWriter;
 import com.pluralsight.drink.*;
 import com.pluralsight.snacks.Snack;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public class IMenu {
     public static Scanner theScanner = new Scanner(System.in);
 
-    public void menu(){
+    public void menu() throws IOException {
         System.out.println("Welcome to the Bar!");
         boolean isRunning = true;
         while(isRunning){
@@ -32,7 +34,7 @@ public class IMenu {
         }
     }
 
-    public void orderMenu(){
+    public void orderMenu() throws IOException {
         boolean isRunning = true;
         Order order = new Order();
         while(isRunning) {
@@ -59,6 +61,7 @@ public class IMenu {
                     break;
                 case 3:
                     displayOrder(order);
+
                     break;
                 case 0:
                     isRunning = false;
@@ -120,7 +123,8 @@ public class IMenu {
         order.addSnack(snacks[userInput - 1]);
     }
 
-    public void displayOrder(Order order){
+    public void displayOrder(Order order) throws IOException {
         System.out.println("Your total is:" + order.getTotal());
+        ReceiptWriter.saveReceipt(order);
     }
 }
