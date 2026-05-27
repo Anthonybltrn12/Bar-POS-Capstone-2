@@ -4,9 +4,9 @@ public enum Garnish {
     LIME("Lime",0.00),
     LEMON("Lemon", 0.00),
     STRAWBERRIES("Strawberries", 0.50),
-    CHERRIES("Cherries", 0.50),
+    CHERRIES("Cherries", 0.25),
     ORANGE("Oranges", 0.50),
-    CINNAMON_STICK("Cinnamon Stick", 0.50);
+    CINNAMON_STICK("Cinnamon Stick", 1.00);
 
     private final String name;
     private final double price;

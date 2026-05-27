@@ -32,11 +32,12 @@ public class ReceiptWriter {
             for (IObject item : order.orderList) {
               // bufferedWriter.write("-" +item.getName() + " " + item.getPrice() + "\n");
                 if(item instanceof Snack){
-                    bufferedWriter.write(((Snack) item).getName() + item.getPrice());
+                    bufferedWriter.write(((Snack) item).getName() + " " + item.getPrice());
                 }
 
 
             }
+            bufferedWriter.write("Total:$" +  order.getTotal());
             bufferedWriter.close();
         }catch(Exception e){
             System.out.println("File not created");
