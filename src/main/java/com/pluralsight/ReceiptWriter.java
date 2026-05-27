@@ -36,9 +36,9 @@ public class ReceiptWriter {
 
 
             }
-            bufferedWriter.write("SubTotal: $" +  order.getTotal() + "\n");
-            bufferedWriter.write("Tax(6.25%): $" + order.getTax() + "\n");
-            bufferedWriter.write("Total: $" + order.getTaxedTotal());
+            bufferedWriter.write(String.format("SubTotal: $%.2f \n" , order.getTotal()));
+            bufferedWriter.write(String.format("Tax(6.25%%): $%.2f \n" , order.getTax()));
+            bufferedWriter.write(String.format("Total: $%.2f \n", order.getTaxedTotal()));
             bufferedWriter.close();
         }catch(Exception e){
             System.out.println("File not created");
@@ -47,6 +47,7 @@ public class ReceiptWriter {
 
     public static String timeStamp(){
         LocalDateTime now = LocalDateTime.now();
-        return now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        String formattedTime = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd \n HH:mm:ss"));
+        return "Date Ordered : \n" + formattedTime;
     }
 }

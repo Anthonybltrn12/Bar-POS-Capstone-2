@@ -138,12 +138,14 @@ public class IMenu {
             System.out.printf("Tax(6.25%%): $ %.2f\n" , order.getTax());
             System.out.printf("Total: $ %.2f\n" , order.getTaxedTotal());
 
-            System.out.println("Confirm Order(Y/N)?");
 
+            System.out.println("Confirm Order(Y/N)?");
             String usrInput = theScanner.nextLine();
             if (usrInput.equalsIgnoreCase("y")) {
                 System.out.println("Thank you for your order!");
                 isRunning = false;
+            }else{
+                orderMenu();
             }
 
 

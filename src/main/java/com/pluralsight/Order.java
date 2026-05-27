@@ -6,6 +6,7 @@ import com.pluralsight.userInterface.IObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Order {
     List<IObject> orderList = new ArrayList<>();
@@ -44,7 +45,7 @@ public class Order {
     public void getSnack(){
         for(IObject item : orderList){
             if(item instanceof Snack){
-                System.out.println(((Snack) item).getName() + item.getPrice());
+                System.out.println("-" + ((Snack) item).getName() + "\n" + "\t-$" + item.getPrice());
             }
         }
     }
@@ -76,5 +77,14 @@ public class Order {
         double total = getTotal();
         double tax = .063;
         return tax * total;
+    }
+    public double addTip(){
+        Scanner theScanner = new Scanner(System.in);
+        System.out.println("Would you like to add a tip?(Y/N)");
+        String userInput = theScanner.nextLine();
+        if(userInput.equalsIgnoreCase("Y")){
+            System.out.println("Please select an option:");
+            System.out.printf("20%%- %.2f\n 18%%- %.2f\n 15%%-%.2f");
+        }
     }
 }
