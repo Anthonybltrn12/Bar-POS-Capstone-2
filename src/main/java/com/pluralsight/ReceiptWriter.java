@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import com.pluralsight.drink.Liquor;
+import com.pluralsight.snacks.Snack;
 import com.pluralsight.userInterface.IObject;
 
 import java.io.BufferedWriter;
@@ -22,14 +23,17 @@ public class ReceiptWriter {
                    ---------------------
                    
                     """);
-            bufferedWriter.write(timeStamp());
+            bufferedWriter.write(timeStamp() + "\n");
 
             for(String drink : order.getDrink()){
                 bufferedWriter.write(drink);
             }
 
             for (IObject item : order.orderList) {
-                bufferedWriter.write("-" +item.getName() + " " + item.getPrice() + "\n");
+              // bufferedWriter.write("-" +item.getName() + " " + item.getPrice() + "\n");
+                if(item instanceof Snack){
+                    bufferedWriter.write(((Snack) item).getName() + item.getPrice());
+                }
 
 
             }

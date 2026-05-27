@@ -44,7 +44,7 @@ public class Order {
     public void getSnack(){
         for(IObject item : orderList){
             if(item instanceof Snack){
-                System.out.println(((Snack) item).getName());
+                System.out.println(((Snack) item).getName() + item.getPrice());
             }
         }
     }
