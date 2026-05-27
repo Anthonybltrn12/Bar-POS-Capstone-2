@@ -17,14 +17,21 @@ public class ReceiptWriter {
             FileWriter fileWriter = new FileWriter("src/main/resources/receipts" + filename);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
+            bufferedWriter.write("""
+                   - AB's Bar & Lounge -
+                   ---------------------
+                   
+                    """);
+            bufferedWriter.write(timeStamp());
+
             for (IObject item : order.orderList) {
-                bufferedWriter.write(item.getName() + " " + item.getPrice() + "\n");
+                bufferedWriter.write("-" +item.getName() + " " + item.getPrice() + "\n");
 
 
             }
             bufferedWriter.close();
         }catch(Exception e){
-            System.out.println("FIle not created");
+            System.out.println("File not created");
         }
     }
 

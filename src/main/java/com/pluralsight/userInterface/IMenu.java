@@ -124,7 +124,8 @@ public class IMenu {
     }
 
     public void displayOrder(Order order) throws IOException {
-        System.out.println(order.getOrderSummary());
+        System.out.println(ReceiptWriter.timeStamp());
+        System.out.println(order.getDrink(drink));
         System.out.println("Your total is:" + order.getTotal());
         ReceiptWriter.saveReceipt(order);
     }
