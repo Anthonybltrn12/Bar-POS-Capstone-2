@@ -52,7 +52,13 @@ public class Drink implements IObject {
     }
 
     public String getSummary(){
-        return (liquor.getName() + pourSize.getName() + mixer.getName() + garnish.getName());
+        return ("-" + liquor.getName() + "\n"
+                + "-" +  pourSize.getName() + "\n"
+                + "\t -$" + pourSize.getPrice() + "\n"
+                + "-" +  mixer.getName() + "\n"
+                + "\t -$" + mixer.getPrice() + "\n"
+                + "-" +  garnish.getName()) + "\n"
+                + "\t -$" + garnish.getPrice() + "\n";
 
     }
 

@@ -24,6 +24,10 @@ public class ReceiptWriter {
                     """);
             bufferedWriter.write(timeStamp());
 
+            for(String drink : order.getDrink()){
+                bufferedWriter.write(drink);
+            }
+
             for (IObject item : order.orderList) {
                 bufferedWriter.write("-" +item.getName() + " " + item.getPrice() + "\n");
 

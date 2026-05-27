@@ -30,25 +30,23 @@ public class Order {
     public void addSnack(Snack snack){
         orderList.add(snack);
     }
-    public void getDrink(){
-
+    public ArrayList<String> getDrink(){
+        ArrayList<String> drinks = new ArrayList<>();
         for(IObject item : orderList){
             if(item instanceof Drink){
-                System.out.println(((Drink) item).getSummary());
+                drinks.add(((Drink) item).getSummary());
             }
         }
 
-
+        return drinks;
     }
 
-    public ArrayList<Snack> getSnack(){
-        ArrayList<Snack> snacks = new ArrayList<>();
+    public void getSnack(){
         for(IObject item : orderList){
             if(item instanceof Snack){
-                snacks.add((Snack) item);
+                System.out.println(((Snack) item).getName());
             }
         }
-        return snacks;
     }
 
     public void getOrderSummary(){

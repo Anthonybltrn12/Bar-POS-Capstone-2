@@ -124,9 +124,26 @@ public class IMenu {
     }
 
     public void displayOrder(Order order) throws IOException {
-        System.out.println(ReceiptWriter.timeStamp());
-        order.getDrink();
-        System.out.println("Your total is:" + order.getTotal());
-        ReceiptWriter.saveReceipt(order);
+        theScanner.nextLine();
+        boolean isRunning = true;
+        while(isRunning) {
+            System.out.println(ReceiptWriter.timeStamp());
+            ReceiptWriter.saveReceipt(order);
+            for(String drink : order.getDrink()){
+                System.out.println(drink);
+            }
+            order.getSnack();
+            System.out.println("Your total is: $" + order.getTotal());
+
+            System.out.println("Confirm Order(Y/N)?");
+
+            String usrInput = theScanner.nextLine();
+            if (usrInput.equalsIgnoreCase("y")) {
+                System.out.println("Thank you for your order!");
+                isRunning = false;
+            }
+
+
+        }
     }
 }
