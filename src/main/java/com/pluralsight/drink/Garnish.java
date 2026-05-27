@@ -1,7 +1,7 @@
 package com.pluralsight.drink;
 
 public enum Garnish {
-    LIME("Lime",0.00),
+    LIME("Lime", 0.00),
     LEMON("Lemon", 0.00),
     STRAWBERRIES("Strawberries", 0.50),
     CHERRIES("Cherries", 0.25),
@@ -11,7 +11,7 @@ public enum Garnish {
     private final String name;
     private final double price;
 
-    Garnish(String name,double price){
+    Garnish(String name, double price) {
         this.name = name;
         this.price = price;
     }

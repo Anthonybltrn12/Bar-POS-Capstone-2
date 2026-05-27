@@ -10,16 +10,17 @@ public class Drink implements IObject {
     protected Liquor liquor;
     protected Garnish garnish;
 
-    public Drink(){
+    public Drink() {
 
         this.price = 0.00;
     }
 
 
-    public void setPourSize(PourSize pourSize){
+    public void setPourSize(PourSize pourSize) {
         this.pourSize = pourSize;
     }
-    public void setMixer(Mixer mixer){
+
+    public void setMixer(Mixer mixer) {
         this.mixer = mixer;
     }
 
@@ -39,7 +40,7 @@ public class Drink implements IObject {
         this.garnish = garnish;
     }
 
-    public double getPrice(){
+    public double getPrice() {
         double total = this.price;
         total += pourSize.getPrice();
         total += mixer.getPrice();
@@ -47,17 +48,18 @@ public class Drink implements IObject {
 
         return total;
     }
-    public String getName(){
+
+    public String getName() {
         return liquor.toString();
     }
 
-    public String getSummary(){
+    public String getSummary() {
         return ("-" + liquor.getName() + "\n"
-                + "-" +  pourSize.getName() + "\n"
+                + "-" + pourSize.getName() + "\n"
                 + "\t -$" + pourSize.getPrice() + "\n"
-                + "-" +  mixer.getName() + "\n"
+                + "-" + mixer.getName() + "\n"
                 + "\t -$" + mixer.getPrice() + "\n"
-                + "-" +  garnish.getName()) + "\n"
+                + "-" + garnish.getName()) + "\n"
                 + "\t -$" + garnish.getPrice() + "\n";
 
     }

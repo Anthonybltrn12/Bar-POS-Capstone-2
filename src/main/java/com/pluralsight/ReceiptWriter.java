@@ -19,35 +19,35 @@ public class ReceiptWriter {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             bufferedWriter.write("""
-                   - AB's Bar & Lounge -
-                   --------------------- 
+                    - AB's Bar & Lounge -
+                    --------------------- 
                     """);
             bufferedWriter.write(timeStamp() + "\n");
 
-            for(String drink : order.getDrink()){
+            for (String drink : order.getDrink()) {
                 bufferedWriter.write(drink);
             }
 
             for (IObject item : order.orderList) {
-              // bufferedWriter.write("-" +item.getName() + " " + item.getPrice() + "\n");
-                if(item instanceof Snack){
+                // bufferedWriter.write("-" +item.getName() + " " + item.getPrice() + "\n");
+                if (item instanceof Snack) {
                     bufferedWriter.write(((Snack) item).getName() + "\n " + "\t -" + item.getPrice());
                 }
 
 
             }
-            bufferedWriter.write(String.format("SubTotal: $%.2f \n" , order.getTotal()));
-            bufferedWriter.write(String.format("Tax(6.25%%): $%.2f \n" , order.getTax()));
+            bufferedWriter.write(String.format("SubTotal: $%.2f \n", order.getTotal()));
+            bufferedWriter.write(String.format("Tax(6.25%%): $%.2f \n", order.getTax()));
             bufferedWriter.write(String.format("Total: $%.2f \n", order.getTaxedTotal()));
-            bufferedWriter.write(String.format("Total with Tip: %.2f", order.addTip()));
+            bufferedWriter.write(String.format("Total with Tip: %.2f", order.getTip()));
 
             bufferedWriter.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println("File not created");
         }
     }
 
-    public static String timeStamp(){
+    public static String timeStamp() {
         LocalDateTime now = LocalDateTime.now();
         String formattedTime = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd \n HH:mm:ss"));
         return "Date Ordered : \n" + formattedTime;

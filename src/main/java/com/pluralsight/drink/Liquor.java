@@ -8,7 +8,7 @@ public enum Liquor {
 
     private final String name;
 
-    Liquor(String name){
+    Liquor(String name) {
         this.name = name;
     }
 
