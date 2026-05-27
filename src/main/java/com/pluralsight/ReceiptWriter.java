@@ -20,8 +20,7 @@ public class ReceiptWriter {
 
             bufferedWriter.write("""
                    - AB's Bar & Lounge -
-                   ---------------------
-                   
+                   --------------------- 
                     """);
             bufferedWriter.write(timeStamp() + "\n");
 
@@ -32,12 +31,14 @@ public class ReceiptWriter {
             for (IObject item : order.orderList) {
               // bufferedWriter.write("-" +item.getName() + " " + item.getPrice() + "\n");
                 if(item instanceof Snack){
-                    bufferedWriter.write(((Snack) item).getName() + " " + item.getPrice());
+                    bufferedWriter.write(((Snack) item).getName() + "\n " + "\t -" + item.getPrice());
                 }
 
 
             }
-            bufferedWriter.write("Total:$" +  order.getTotal());
+            bufferedWriter.write("SubTotal: $" +  order.getTotal() + "\n");
+            bufferedWriter.write("Tax(6.25%): $" + order.getTax() + "\n");
+            bufferedWriter.write("Total: $" + order.getTaxedTotal());
             bufferedWriter.close();
         }catch(Exception e){
             System.out.println("File not created");

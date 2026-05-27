@@ -13,7 +13,7 @@ public class IMenu {
     public static Scanner theScanner = new Scanner(System.in);
 
     public void menu() throws IOException {
-        System.out.println("Welcome to the Bar!");
+        System.out.println("Welcome to AB Bar & Lounge!");
         boolean isRunning = true;
         while(isRunning){
             System.out.println("""
@@ -39,10 +39,11 @@ public class IMenu {
         Order order = new Order();
         while(isRunning) {
             System.out.println("""
-                    1) Add Drink
-                    2) Add Snack
-                    3) Checkout
-                    0) Cancel Order
+                    Bartender - "What can I do for you?
+                    \t1) Add Drink
+                    \t2) Add Snack
+                    \t3) Checkout
+                    \t0) Cancel Order
                     """);
             int userInput = theScanner.nextInt();
             switch(userInput){
@@ -61,7 +62,7 @@ public class IMenu {
                     break;
                 case 3:
                     displayOrder(order);
-
+                    isRunning = false;
                     break;
                 case 0:
                     isRunning = false;
@@ -133,7 +134,9 @@ public class IMenu {
                 System.out.println(drink);
             }
             order.getSnack();
-            System.out.println("Your total is: $" + order.getTotal());
+            System.out.printf("SubTotal: $ %.2f\n" , order.getTotal());
+            System.out.printf("Tax(6.25%%): $ %.2f\n" , order.getTax());
+            System.out.printf("Total: $ %.2f\n" , order.getTaxedTotal());
 
             System.out.println("Confirm Order(Y/N)?");
 

@@ -66,4 +66,15 @@ public class Order {
         return total;
 
     }
+    public double getTaxedTotal(){
+        double total = getTotal();
+        double tax = .063;
+        double taxRate = total * tax;
+        return total + taxRate;
+    }
+    public double getTax(){
+        double total = getTotal();
+        double tax = .063;
+        return tax * total;
+    }
 }
