@@ -31,7 +31,7 @@ public class ReceiptWriter {
             for (IObject item : order.orderList) {
                 // bufferedWriter.write("-" +item.getName() + " " + item.getPrice() + "\n");
                 if (item instanceof Snack) {
-                    bufferedWriter.write(((Snack) item).getName() + "\n " + "\t -" + item.getPrice());
+                    bufferedWriter.write(((Snack) item).getName() + "\n " + "\t -" + item.getPrice() + "\n");
                 }
 
 
