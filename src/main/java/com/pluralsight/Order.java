@@ -79,12 +79,42 @@ public class Order {
         return tax * total;
     }
     public double addTip(){
-        Scanner theScanner = new Scanner(System.in);
-        System.out.println("Would you like to add a tip?(Y/N)");
-        String userInput = theScanner.nextLine();
-        if(userInput.equalsIgnoreCase("Y")){
-            System.out.println("Please select an option:");
-            System.out.printf("20%%- %.2f\n 18%%- %.2f\n 15%%-%.2f");
-        }
+
+
+
+            Scanner theScanner = new Scanner(System.in);
+            double totalWTip = 0;
+            double tip = 0;
+            System.out.println("Would you like to add a tip?(Y/N)");
+            String userInput = theScanner.nextLine();
+            if (userInput.equalsIgnoreCase("Y")) {
+                System.out.println("Please select an option:");
+                System.out.printf("1)20%%- %.2f\n 2)18%%- %.2f\n 3)15%%-%.2f", (getTotal() + (getTotal() * .2)), (getTotal() + (getTotal() * .18)), (getTotal() + (getTotal() * .15)));
+                int tipInput = theScanner.nextInt();
+                switch (tipInput) {
+                    case 1:
+                        System.out.println("Total:$" + getTaxedTotal() + "\n Total w/ Tip: $" + (getTaxedTotal() + (getTotal() * .2)));
+                        totalWTip = (getTaxedTotal() + (getTotal() * .2));
+
+                        break;
+                    case 2:
+                        System.out.println("Total:$" + getTaxedTotal() + "\n Total w/ Tip: $" + (getTaxedTotal() + (getTotal() * .18)));
+                        totalWTip = (getTaxedTotal() + (getTotal() * .18));
+
+                        break;
+                    case 3:
+                        System.out.println("Total:$" + getTaxedTotal() + "\n Total w/ Tip: $" + (getTaxedTotal() + (getTotal() * .15)));
+                        totalWTip = (getTaxedTotal() + (getTotal() * .15));
+
+                        break;
+                }
+            } else {
+                totalWTip = getTaxedTotal();
+            }
+
+
+
+            return totalWTip;
+
     }
 }

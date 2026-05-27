@@ -39,6 +39,8 @@ public class ReceiptWriter {
             bufferedWriter.write(String.format("SubTotal: $%.2f \n" , order.getTotal()));
             bufferedWriter.write(String.format("Tax(6.25%%): $%.2f \n" , order.getTax()));
             bufferedWriter.write(String.format("Total: $%.2f \n", order.getTaxedTotal()));
+            bufferedWriter.write(String.format("Total with Tip: %.2f", order.addTip()));
+
             bufferedWriter.close();
         }catch(Exception e){
             System.out.println("File not created");

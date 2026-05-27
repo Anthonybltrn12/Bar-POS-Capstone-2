@@ -129,7 +129,7 @@ public class IMenu {
         boolean isRunning = true;
         while(isRunning) {
             System.out.println(ReceiptWriter.timeStamp());
-            ReceiptWriter.saveReceipt(order);
+
             for(String drink : order.getDrink()){
                 System.out.println(drink);
             }
@@ -137,18 +137,21 @@ public class IMenu {
             System.out.printf("SubTotal: $ %.2f\n" , order.getTotal());
             System.out.printf("Tax(6.25%%): $ %.2f\n" , order.getTax());
             System.out.printf("Total: $ %.2f\n" , order.getTaxedTotal());
-
-
+            order.addTip();
             System.out.println("Confirm Order(Y/N)?");
             String usrInput = theScanner.nextLine();
             if (usrInput.equalsIgnoreCase("y")) {
+
                 System.out.println("Thank you for your order!");
+
                 isRunning = false;
+
             }else{
                 orderMenu();
             }
 
 
         }
+        ReceiptWriter.saveReceipt(order);
     }
 }
