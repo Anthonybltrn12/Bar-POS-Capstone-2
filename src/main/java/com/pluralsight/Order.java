@@ -30,14 +30,14 @@ public class Order {
     public void addSnack(Snack snack){
         orderList.add(snack);
     }
-    public ArrayList<Drink> getDrink(){
-        ArrayList<Drink> drinks = new ArrayList<>();
+    public void getDrink(){
+
         for(IObject item : orderList){
             if(item instanceof Drink){
-                drinks.add((Drink) item);
+                System.out.println(((Drink) item).getSummary());
             }
         }
-        return drinks;
+
 
     }
 
