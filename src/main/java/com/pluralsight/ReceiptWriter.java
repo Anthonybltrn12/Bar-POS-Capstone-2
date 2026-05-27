@@ -22,12 +22,14 @@ public class ReceiptWriter {
 
 
             }
-
             bufferedWriter.close();
         }catch(Exception e){
             System.out.println("FIle not created");
         }
+    }
 
-
+    public static String timeStamp(){
+        LocalDateTime now = LocalDateTime.now();
+        return now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 }
