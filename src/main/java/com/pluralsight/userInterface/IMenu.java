@@ -105,7 +105,7 @@ public class IMenu {
             }
         }
     }
-
+    //grabbing the special cocktails and setting each attribute into the drink class
     public void specialtyCocktailMenu(Drink drink){
         CocktailMenu[] cocktails = CocktailMenu.values();
         for(CocktailMenu cocktail : CocktailMenu.values()){

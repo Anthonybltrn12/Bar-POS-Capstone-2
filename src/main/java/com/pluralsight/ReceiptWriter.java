@@ -26,18 +26,18 @@ public class ReceiptWriter {
             bufferedWriter.write(timeStamp() + "\n");
             //making sure this header is only added if there are drinks within the order
             if(order.getDrink() != null){
-                bufferedWriter.write("Drinks ------------- \n");
+                bufferedWriter.write("Drinks------------- \n");
             }
 
             for (String drink : order.getDrink()) {
-                bufferedWriter.write(drink + "\n ---------------- \n");
+                bufferedWriter.write(drink + "\n ------------------- \n");
             }
 
 
             for (IObject item : order.orderList) {
                 if (item instanceof Snack) {
                     //grabbing the snacks to be under the drinks on receipt
-                    bufferedWriter.write(((Snack) item).getName() + "\n " + "\t -" + item.getPrice() + "\n");
+                    bufferedWriter.write("-" + ((Snack) item).getName() + "\n " + "\t -$" + item.getPrice() + "\n");
                 }
 
 
@@ -46,7 +46,7 @@ public class ReceiptWriter {
             bufferedWriter.write(String.format("Tax(6.25%%): $%.2f \n", order.getTax()));
             bufferedWriter.write(String.format("Total: $%.2f \n", order.getTaxedTotal()));
             bufferedWriter.write(String.format("Total with Tip: %.2f", order.getTip()));
-            bufferedWriter.write(String.format("\n---------------"));
+            bufferedWriter.write(String.format("\n-------------------"));
 
             bufferedWriter.close();
         } catch (Exception e) {
