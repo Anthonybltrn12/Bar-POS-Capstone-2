@@ -129,7 +129,20 @@ public class IMenu {
                 drink.setMixer(CocktailMenu.MARKY_MARK.getMixer());
                 drink.setGarnish(CocktailMenu.MARKY_MARK.getGarnish());
                 break;
-
+            case 3:
+                drink.setLiquor(CocktailMenu.THE_AMANI.getLiquor());
+                drink.setPourSize(CocktailMenu.THE_AMANI.getPourSize());
+                drink.setGlassSize(CocktailMenu.THE_AMANI.getGlassSize());
+                drink.setMixer(CocktailMenu.THE_AMANI.getMixer());
+                drink.setGarnish(CocktailMenu.THE_AMANI.getGarnish());
+                break;
+            case 4:
+                drink.setLiquor(CocktailMenu.CAPE_COD.getLiquor());
+                drink.setPourSize(CocktailMenu.CAPE_COD.getPourSize());
+                drink.setGlassSize(CocktailMenu.CAPE_COD.getGlassSize());
+                drink.setMixer(CocktailMenu.CAPE_COD.getMixer());
+                drink.setGarnish(CocktailMenu.CAPE_COD.getGarnish());
+                break;
 
         }
     }

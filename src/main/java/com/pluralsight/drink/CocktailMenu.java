@@ -2,7 +2,9 @@ package com.pluralsight.drink;
 
 public enum CocktailMenu {
 RANCH_WATER("Ranch Water",Liquor.TEQUILA,PourSize.SINGLE,GlassSize.TALL,Mixer.SODA_WATER,Garnish.LIME),
-MARKY_MARK("Marky Mark",Liquor.RUM,PourSize.SINGLE,GlassSize.SHORT,Mixer.COKE,Garnish.LIME);
+MARKY_MARK("Marky Mark",Liquor.RUM,PourSize.SINGLE,GlassSize.SHORT,Mixer.COKE,Garnish.LIME),
+    THE_AMANI("The Amani",Liquor.WHISKEY,PourSize.SINGLE,GlassSize.SHORT,Mixer.PINEAPPLE,Garnish.ORANGE),
+    CAPE_COD("Cape Cod",Liquor.VODKA,PourSize.SINGLE,GlassSize.SHORT,Mixer.CRANBERRY,Garnish.LIME);
 
 private String name;
 private final Liquor liquor;
