@@ -14,15 +14,17 @@ public class ReceiptWriter {
 
     public static void saveReceipt(Order order) throws IOException {
         try {
+            //creating the file name to contain the date of the order
             String filename = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")) + ".txt";
             FileWriter fileWriter = new FileWriter("src/main/resources/receipts" + filename);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-
+            //making the receipt header
             bufferedWriter.write("""
                     - AB's Bar & Lounge -
                     --------------------- 
                     """);
             bufferedWriter.write(timeStamp() + "\n");
+            //making sure this header is only added if there are drinks within the order
             if(order.getDrink() != null){
                 bufferedWriter.write("Drinks ------------- \n");
             }
@@ -34,6 +36,7 @@ public class ReceiptWriter {
 
             for (IObject item : order.orderList) {
                 if (item instanceof Snack) {
+                    //grabbing the snacks to be under the drinks on receipt
                     bufferedWriter.write(((Snack) item).getName() + "\n " + "\t -" + item.getPrice() + "\n");
                 }
 
@@ -51,6 +54,7 @@ public class ReceiptWriter {
     }
 
     public static String timeStamp() {
+        //creating timestamp method to use it in the command line
         LocalDateTime now = LocalDateTime.now();
         String formattedTime = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd           HH:mm:ss"));
         return "Date Ordered:     Time Ordered: \n" + formattedTime;

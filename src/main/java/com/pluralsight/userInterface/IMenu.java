@@ -13,6 +13,7 @@ public class IMenu {
     public static Scanner theScanner = new Scanner(System.in);
 
     public void menu() throws IOException {
+        //crating a startup menu to kickoff the app
         System.out.println("Welcome to AB Bar & Lounge!");
         boolean isRunning = true;
         while (isRunning) {
@@ -22,6 +23,7 @@ public class IMenu {
                     2) Exit
                     """);
             int userInput = theScanner.nextInt();
+            //next path id chosen by user
             switch (userInput) {
                 case 1:
                     orderMenu();
@@ -36,6 +38,7 @@ public class IMenu {
 
     public void orderMenu() throws IOException {
         boolean isRunning = true;
+        //instantiating a new order everytime a user starts one
         Order order = new Order();
         while (isRunning) {
             System.out.println("""
@@ -54,6 +57,7 @@ public class IMenu {
                     mixerMenu(drink);
                     garnishMenu(drink);
                     finalPrice(drink);
+                    //adding drink to the order once the user has chosen all options
                     order.addDrink(drink);
                     break;
                 case 2:
@@ -64,6 +68,7 @@ public class IMenu {
                     isRunning = false;
                     break;
                 case 0:
+                    //exit to the main menu again
                     isRunning = false;
                     break;
             }
@@ -71,24 +76,27 @@ public class IMenu {
     }
 
     public void liquorMenu(Drink drink) {
-
+        //displaying the liquor options by using the enum ordinals to list them
         Liquor[] liquors = Liquor.values();
         for (Liquor liquorType : Liquor.values()) {
             System.out.println((liquorType.ordinal() + 1) + "." + liquorType.getName());
         }
         System.out.println("Please select an option:");
         int userInput = theScanner.nextInt();
+        //taking the user input and using it set their choice into the drink order
         drink.setLiquor(liquors[userInput - 1]);
 
     }
 
     public void pourSizeMenu(Drink drink) {
+        //using the poursize enum to display all option
         PourSize[] pourSizes = PourSize.values();
         for (PourSize poursize : PourSize.values()) {
             System.out.println((poursize.ordinal() + 1) + "." + poursize.getName());
         }
         System.out.println("Please select an option:");
         int userInput = theScanner.nextInt();
+        //taking the user choice and setting it in the drink order
         drink.setPourSize(pourSizes[userInput - 1]);
     }
 
@@ -99,6 +107,7 @@ public class IMenu {
         }
         System.out.println("Please select an option:");
         int userInput = theScanner.nextInt();
+        //taking the user choice and setting it in the drink order
         drink.setMixer(mixers[userInput - 1]);
     }
 
@@ -107,9 +116,12 @@ public class IMenu {
         for (Garnish garnish : Garnish.values()) {
             System.out.println((garnish.ordinal() + 1) + "." + garnish.getName());
         }
-        System.out.println("Please select an option:");
-        int userInput = theScanner.nextInt();
-        drink.setGarnish(garnishes[userInput - 1]);
+            System.out.println("Please select an option:");
+            int userInput = theScanner.nextInt();
+        //taking the user choice and setting it in the drink order
+            drink.setGarnish(garnishes[userInput - 1]);
+
+
     }
 
     public void finalPrice(Drink drink) {
@@ -123,13 +135,16 @@ public class IMenu {
         }
         System.out.println("Please select an option:");
         int userInput = theScanner.nextInt();
+        //taking the user choice and setting it in the snack order
         order.addSnack(snacks[userInput - 1]);
     }
-
+    // creating the command line receipt once the user is done ordering
     public void displayOrder(Order order) throws IOException {
+        //eating line because the last input was an integer
         theScanner.nextLine();
         boolean isRunning = true;
         while (isRunning) {
+            //using the time stamp for the cl receipt
             System.out.println(ReceiptWriter.timeStamp());
 
             for (String drink : order.getDrink()) {
@@ -139,6 +154,7 @@ public class IMenu {
             System.out.printf("SubTotal: $ %.2f\n", order.getTotal());
             System.out.printf("Tax(6.25%%): $ %.2f\n", order.getTax());
             System.out.printf("Total: $ %.2f\n", order.getTaxedTotal());
+            //asking the user if they want to add a tip
             order.addTip();
 
             System.out.println("Confirm Order(Y/N)?");
@@ -150,6 +166,7 @@ public class IMenu {
                 isRunning = false;
 
             } else {
+                //taking them back to the main menu if they dont confirm the order
                 orderMenu();
             }
 

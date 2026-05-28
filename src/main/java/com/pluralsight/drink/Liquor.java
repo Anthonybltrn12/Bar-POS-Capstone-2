@@ -1,6 +1,7 @@
 package com.pluralsight.drink;
 
 public enum Liquor {
+    //creating an enum to hold the different types of bases for a drink
     VODKA("Vodka"),
     WHISKEY("Whiskey"),
     TEQUILA("Tequila"),
@@ -11,7 +12,7 @@ public enum Liquor {
     Liquor(String name) {
         this.name = name;
     }
-
+    //getter
     public String getName() {
         return name;
     }

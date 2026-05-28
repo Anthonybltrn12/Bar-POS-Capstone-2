@@ -1,6 +1,7 @@
 package com.pluralsight.drink;
 
 public enum Garnish {
+    //creating an enum to hold the different kinds of garnishes
     LIME("Lime", 0.00),
     LEMON("Lemon", 0.00),
     STRAWBERRIES("Strawberries", 0.50),
@@ -18,6 +19,7 @@ public enum Garnish {
         this.price = price;
     }
 
+    //getters and setters
     public String getName() {
         return name;
     }

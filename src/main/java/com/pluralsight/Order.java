@@ -16,7 +16,7 @@ public class Order {
     public Order() {
         this.totalPrice = 0;
     }
-
+    //getters and setters
     public List<IObject> getOrderList() {
         return orderList;
     }
@@ -35,6 +35,7 @@ public class Order {
 
     public ArrayList<String> getDrink() {
         ArrayList<String> drinks = new ArrayList<>();
+        //looping through the array to only pull out the drink order part
         for (IObject item : orderList) {
             if (item instanceof Drink) {
                 drinks.add(((Drink) item).getSummary());
@@ -46,6 +47,7 @@ public class Order {
 
     public void getSnack() {
         for (IObject item : orderList) {
+            //looping through to get the snacks from the entire order
             if (item instanceof Snack) {
                 System.out.println("-" + ((Snack) item).getName() + "\n" + "\t-$" + item.getPrice() + "\n");
             }
@@ -62,6 +64,7 @@ public class Order {
     public double getTotal() {
         double total = 0;
         for (IObject item : orderList) {
+            //does price of each item in the order and adds it together
             double itemPrice = item.getPrice();
             total += itemPrice;
         }
@@ -69,14 +72,14 @@ public class Order {
         return total;
 
     }
-
+    //getting the total with the tax added to it
     public double getTaxedTotal() {
         double total = getTotal();
         double tax = .063;
         double taxRate = total * tax;
         return total + taxRate;
     }
-
+    //doing the math for the tax on an order before adding it to the total
     public double getTax() {
         double total = getTotal();
         double tax = .063;
@@ -91,6 +94,7 @@ public class Order {
         String userInput = theScanner.nextLine();
         if (userInput.equalsIgnoreCase("Y")) {
             System.out.println("Please select an option:");
+            //doing the math for the orders tips options based on the total amoount from the order
             System.out.printf("1)20%%- %.2f\n 2)18%%- %.2f\n 3)15%%-%.2f\n", (getTotal() * .2), (getTotal() * .18), (getTotal() * .15));
             int tipInput = theScanner.nextInt();
             switch (tipInput) {

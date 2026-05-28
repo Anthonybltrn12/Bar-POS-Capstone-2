@@ -3,19 +3,20 @@ package com.pluralsight.drink;
 import com.pluralsight.userInterface.IObject;
 
 public class Drink implements IObject {
-
+    //creating the variables needed for the drink class
     protected double price;
     protected PourSize pourSize;
     protected Mixer mixer;
     protected Liquor liquor;
     protected Garnish garnish;
 
+    //instantiating the price
     public Drink() {
 
         this.price = 0.00;
     }
 
-
+    //getters and setters
     public void setPourSize(PourSize pourSize) {
         this.pourSize = pourSize;
     }
@@ -48,11 +49,12 @@ public class Drink implements IObject {
 
         return total;
     }
-
+    // returns the name of the liquor the user chose as the base name for the drink
     public String getName() {
         return liquor.toString();
     }
 
+    //Creating the string that will print out when the user wants to checkout
     public String getSummary() {
         return ("-" + liquor.getName() + "\n"
                 + "-" + pourSize.getName() + "\n"

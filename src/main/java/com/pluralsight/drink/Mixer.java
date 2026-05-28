@@ -1,6 +1,7 @@
 package com.pluralsight.drink;
 
 public enum Mixer {
+    //creating an enum to hold all of the mixer options available to the user
     WATER("Water", 0.00),
     SODA_WATER("Soda Water", 0.00),
     CRANBERRY("Cranberry", 0.50),
@@ -20,6 +21,7 @@ public enum Mixer {
         this.price = price;
     }
 
+    //getters
     public String getName() {
         return name;
     }

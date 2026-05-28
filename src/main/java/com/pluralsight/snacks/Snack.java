@@ -3,6 +3,7 @@ package com.pluralsight.snacks;
 import com.pluralsight.userInterface.IObject;
 
 public enum Snack implements IObject {
+    //creating an enum to give user an option of a snack while they drink
     POPCORN("Popcorn", 1.00),
     CHIPS_AND_SALSA("Chips and Salsa", 2.00);
 
@@ -16,6 +17,7 @@ public enum Snack implements IObject {
 
     }
 
+    //getter and setters
     public String getName() {
         return name;
     }
