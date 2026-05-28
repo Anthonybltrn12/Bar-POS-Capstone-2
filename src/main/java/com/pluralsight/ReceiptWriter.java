@@ -23,13 +23,16 @@ public class ReceiptWriter {
                     --------------------- 
                     """);
             bufferedWriter.write(timeStamp() + "\n");
+            if(order.getDrink() != null){
+                bufferedWriter.write("Drinks ------------- \n");
+            }
 
             for (String drink : order.getDrink()) {
                 bufferedWriter.write(drink);
             }
 
+
             for (IObject item : order.orderList) {
-                // bufferedWriter.write("-" +item.getName() + " " + item.getPrice() + "\n");
                 if (item instanceof Snack) {
                     bufferedWriter.write(((Snack) item).getName() + "\n " + "\t -" + item.getPrice() + "\n");
                 }
@@ -49,7 +52,7 @@ public class ReceiptWriter {
 
     public static String timeStamp() {
         LocalDateTime now = LocalDateTime.now();
-        String formattedTime = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd \n HH:mm:ss"));
-        return "Date Ordered : \n" + formattedTime;
+        String formattedTime = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd           HH:mm:ss"));
+        return "Date Ordered:     Time Ordered: \n" + formattedTime;
     }
 }

@@ -5,6 +5,8 @@ public enum Garnish {
     LEMON("Lemon", 0.00),
     STRAWBERRIES("Strawberries", 0.50),
     CHERRIES("Cherries", 0.25),
+    SALT_RIM("Salt Rim", 0.25),
+    TAJIN_RIM("Tajin Rim", 0.25),
     ORANGE("Oranges", 0.50),
     CINNAMON_STICK("Cinnamon Stick", 1.00);
 

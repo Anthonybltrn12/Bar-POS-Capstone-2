@@ -95,17 +95,17 @@ public class Order {
             int tipInput = theScanner.nextInt();
             switch (tipInput) {
                 case 1:
-                    System.out.println("Total:$" + getTaxedTotal() + "\n Total w/ Tip: $" + (getTaxedTotal() + (getTotal() * .2)));
+                    System.out.printf("Total: $%.2f \n Total w/ Tip: $%.2f\n", getTaxedTotal(), (getTaxedTotal() + (getTotal() * .2)));
                     totalWTip = (getTaxedTotal() + (getTotal() * .2));
 
                     break;
                 case 2:
-                    System.out.println("Total:$" + getTaxedTotal() + "\n Total w/ Tip: $" + (getTaxedTotal() + (getTotal() * .18)));
+                    System.out.printf("Total: $%.2f \n Total w/ Tip: $%.2f\n", getTaxedTotal(), (getTaxedTotal() + (getTotal() * .18)));
                     totalWTip = (getTaxedTotal() + (getTotal() * .18));
 
                     break;
                 case 3:
-                    System.out.println("Total:$" + getTaxedTotal() + "\n Total w/ Tip: $" + (getTaxedTotal() + (getTotal() * .15)));
+                    System.out.printf("Total: $%.2f \n Total w/ Tip: $%.2f\n", getTaxedTotal(), (getTaxedTotal() + (getTotal() * .15)));
                     totalWTip = (getTaxedTotal() + (getTotal() * .15));
 
                     break;

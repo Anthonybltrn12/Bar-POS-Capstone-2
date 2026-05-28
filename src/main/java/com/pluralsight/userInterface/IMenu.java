@@ -57,7 +57,6 @@ public class IMenu {
                     order.addDrink(drink);
                     break;
                 case 2:
-
                     snackMenu(order);
                     break;
                 case 3:
@@ -114,7 +113,7 @@ public class IMenu {
     }
 
     public void finalPrice(Drink drink) {
-        System.out.println(drink.getPrice());
+        System.out.println("Current order: $" + drink.getPrice());
     }
 
     public void snackMenu(Order order) {
