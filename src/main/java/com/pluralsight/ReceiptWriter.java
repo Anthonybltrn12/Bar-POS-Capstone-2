@@ -46,6 +46,7 @@ public class ReceiptWriter {
             bufferedWriter.write(String.format("Tax(6.25%%): $%.2f \n", order.getTax()));
             bufferedWriter.write(String.format("Total: $%.2f \n", order.getTaxedTotal()));
             bufferedWriter.write(String.format("Total with Tip: %.2f", order.getTip()));
+            bufferedWriter.write(String.format("\n-----------"));
 
             bufferedWriter.close();
         } catch (Exception e) {
