@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import com.pluralsight.drink.CocktailMenu;
 import com.pluralsight.drink.Drink;
 import com.pluralsight.snacks.Snack;
 import com.pluralsight.userInterface.IObject;
@@ -56,8 +57,13 @@ public class Order {
 
     public void getOrderSummary() {
         for (IObject item : orderList) {
-            System.out.println(item.getName());
-            System.out.println(item.getPrice());
+            if(item.getName().equalsIgnoreCase("Ranch Water") || item.getName().equalsIgnoreCase("Marky Mark")){
+                System.out.println(item.getName());
+                System.out.println(item.getPrice());
+            }else {
+                System.out.println(item.getName());
+                System.out.println(item.getPrice());
+            }
         }
     }
 

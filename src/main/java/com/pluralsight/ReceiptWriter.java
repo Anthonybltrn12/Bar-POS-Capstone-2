@@ -30,7 +30,7 @@ public class ReceiptWriter {
             }
 
             for (String drink : order.getDrink()) {
-                bufferedWriter.write(drink);
+                bufferedWriter.write(drink + "\n ---------------- \n");
             }
 
 
@@ -46,7 +46,7 @@ public class ReceiptWriter {
             bufferedWriter.write(String.format("Tax(6.25%%): $%.2f \n", order.getTax()));
             bufferedWriter.write(String.format("Total: $%.2f \n", order.getTaxedTotal()));
             bufferedWriter.write(String.format("Total with Tip: %.2f", order.getTip()));
-            bufferedWriter.write(String.format("\n-----------"));
+            bufferedWriter.write(String.format("\n---------------"));
 
             bufferedWriter.close();
         } catch (Exception e) {

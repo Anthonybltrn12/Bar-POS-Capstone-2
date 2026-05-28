@@ -4,11 +4,13 @@ import com.pluralsight.userInterface.IObject;
 
 public class Drink implements IObject {
     //creating the variables needed for the drink class
+    protected String name;
     protected double price;
     protected PourSize pourSize;
     protected Mixer mixer;
     protected Liquor liquor;
     protected Garnish garnish;
+    protected GlassSize glassSize;
 
     //instantiating the price
     public Drink() {
@@ -17,6 +19,15 @@ public class Drink implements IObject {
     }
 
     //getters and setters
+
+    public GlassSize getGlassSize() {
+        return glassSize;
+    }
+
+    public void setGlassSize(GlassSize glassSize) {
+        this.glassSize = glassSize;
+    }
+
     public void setPourSize(PourSize pourSize) {
         this.pourSize = pourSize;
     }
@@ -53,16 +64,25 @@ public class Drink implements IObject {
     public String getName() {
         return liquor.toString();
     }
+    public String getCocktailName(CocktailMenu cocktail){
+        return cocktail.getName();
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     //Creating the string that will print out when the user wants to checkout
     public String getSummary() {
         return ("-" + liquor.getName() + "\n"
-                + "-" + pourSize.getName() + "\n"
-                + "\t -$" + pourSize.getPrice() + "\n"
-                + "-" + mixer.getName() + "\n"
-                + "\t -$" + mixer.getPrice() + "\n"
-                + "-" + garnish.getName()) + "\n"
-                + "\t -$" + garnish.getPrice() + "\n";
+                    + "-" + pourSize.getName() + "\n"
+                    + "\t -$" + pourSize.getPrice() + "\n"
+                    +"-" + glassSize.getName() + "\n"
+                    + "-" + mixer.getName() + "\n"
+                    + "\t -$" + mixer.getPrice() + "\n"
+                    + "-" + garnish.getName()) + "\n"
+                    + "\t -$" + garnish.getPrice() + "\n";
+
 
     }
 
